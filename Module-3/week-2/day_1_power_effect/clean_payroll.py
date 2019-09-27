@@ -33,7 +33,7 @@ def edit_column_names(payroll):
 
 def clean_mou_data(payroll):
     """adjusts mou to be int, then string. Then put mou_title to lower case to improve value counts"""
-    payroll.mou = payroll.mou.apply(lambda x: int(x))
+    payroll.mou = payroll.mou.astype(int)
     payroll.mou = payroll.mou.astype('category')
     payroll.mou_title = payroll.mou_title.str.lower()
 
